@@ -1,0 +1,34 @@
+{
+  "name": "opanuj-typescript-praktyka",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "verify": "tsx cli/verify.ts",
+    "list": "tsx cli/list.ts",
+    "raport:json": "vitest --run --silent --no-coverage --pool=forks --poolOptions.forks.isolate=false --sequence.concurrent=true --reporter=json --outputFile utils/progress/data/results.json || echo ''",
+    "raport:json:serve": "vite utils/progress --port 3100",
+    "raport:html": "vitest --run --silent --reporter=html || echo ''",
+    "raport:html:serve": "vite preview --outDir html --port 3100",
+    "summary": "npm run raport:json && npm run raport:json:serve",
+    "summary:vitest": "npm run raport:html && npm run raport:html:serve",
+    "_internal:test": "vitest --run tasks/core-pro/000-intro"
+  },
+  "author": "Przeprogramowani",
+  "license": "ISC",
+  "description": "Przeprogramowani.pl - Opanuj TypeScript - Repozytorium dla uczestnika",
+  "devDependencies": {
+    "@types/node": "22.9.3",
+    "@types/prompts": "2.4.9",
+    "@vitest/ui": "^2.1.6",
+    "commander": "12.1.0",
+    "glob": "11.0.0",
+    "open": "10.1.0",
+    "prettier": "3.3.3",
+    "prompts": "2.4.2",
+    "tsx": "4.19.2",
+    "typescript": "5.7.2",
+    "vite": "6.0.1",
+    "vitest": "2.1.6"
+  }
+}

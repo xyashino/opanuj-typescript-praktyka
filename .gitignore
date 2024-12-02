@@ -1,0 +1,6 @@
+node_modules
+dist
+.DS_Store
+.env
+html
+utils/progress/data/results.json
