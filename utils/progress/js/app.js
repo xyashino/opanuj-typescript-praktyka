@@ -194,7 +194,7 @@ function renderChallenges(results, moduleName, tracker) {
           <div class="challenge-card rounded-xl ${getStatusColor(
             challenge.status,
           )} card-hover aspect-square flex flex-col">
-            <div class="p-4 flex-1 cursor-pointer flex flex-col" onclick="toggleTestDetails('${idx}')">
+            <div class="p-4 flex-1 cursor-pointer flex flex-col" onclick="toggleTestDetails('${moduleName}', '${idx}')">
               <div class="flex flex-col gap-2 mb-4">
                 <div class="text-blue-400/80 text-xs font-medium tracking-wider">${challenge.levelName}</div>
                 <div class="flex items-start justify-between gap-2">
@@ -216,7 +216,7 @@ function renderChallenges(results, moduleName, tracker) {
                 </div>
               </div>
             </div>
-            <div id="details-${idx}" class="hidden border-t border-white/5">
+            <div id="details-${moduleName}-${idx}" class="hidden border-t border-white/5">
               <div class="p-4 space-y-2 max-h-48 overflow-y-auto">
                 ${challenge.testDetails
                   .map(
@@ -274,8 +274,8 @@ function getStatusIcon(status) {
   }
 }
 
-function toggleTestDetails(cardId) {
-  const detailsElement = document.getElementById(`details-${cardId}`);
+function toggleTestDetails(moduleName, cardId) {
+  const detailsElement = document.getElementById(`details-${moduleName}-${cardId}`);
   const isExpanded = detailsElement.classList.contains('hidden');
 
   if (isExpanded) {
